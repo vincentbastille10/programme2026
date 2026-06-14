@@ -1,0 +1,649 @@
+/* =========================================================
+   MOULIN ROUGE 2026 — Centre de Danse Delphine Letort
+   Landing premium mobile-first
+   ========================================================= */
+
+:root{
+  --noir:        #0a0504;
+  --noir-2:      #050201;
+  --velvet:      #7d1620;
+  --velvet-deep: #2a0509;
+  --wine:        #3d0a11;
+  --gold:        #c9a24a;
+  --gold-light:  #f6e2a6;
+  --gold-deep:   #8a6321;
+  --cream:       #f4e9cf;
+  --muted:       #cdb78c;
+  --line:        rgba(201,162,74,.42);
+  --gold-grad:   linear-gradient(180deg,#fff4d2 0%,#edcd7e 36%,#bd8a36 56%,#ecca78 74%,#fff6d8 100%);
+
+  --maxw: 760px;
+  --ease: cubic-bezier(.2,.7,.2,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+
+body{
+  margin:0;
+  color:var(--cream);
+  font-family:"EB Garamond",Georgia,"Times New Roman",serif;
+  font-size:1.08rem;
+  font-weight:500;
+  line-height:1.66;
+  background:
+    radial-gradient(120% 70% at 50% -8%, rgba(125,22,32,.40), transparent 60%),
+    radial-gradient(90% 50% at 50% 120%, rgba(125,22,32,.22), transparent 60%),
+    linear-gradient(180deg, #0c0605 0%, #070302 45%, #0a0504 100%);
+  background-attachment:fixed;
+  overflow-x:hidden;
+}
+::selection{background:rgba(201,162,74,.32);color:#fff}
+
+img{max-width:100%;display:block}
+a{color:var(--gold-light)}
+
+h1,h2,h3,h4{margin:0;line-height:1.05}
+
+/* ---------- Texte or métallique ---------- */
+.gold-text,
+.wordmark,
+.section-head h2,
+.datecard__time,
+.act__no,
+.cast__role{
+  background:var(--gold-grad);
+  -webkit-background-clip:text;
+  background-clip:text;
+  -webkit-text-fill-color:transparent;
+  color:var(--gold-light); /* fallback */
+}
+
+/* ---------- Kicker (sur-titre or) ---------- */
+.kicker{
+  margin:0 0 10px;
+  font-family:"Cinzel",serif;
+  font-weight:700;
+  font-size:.72rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+
+/* ---------- Flourish (séparateur ornemental) ---------- */
+.flourish{
+  display:flex;align-items:center;justify-content:center;gap:14px;
+  margin:14px auto 0;color:var(--gold);
+}
+.flourish i{
+  height:1px;width:min(110px,24vw);
+  background:linear-gradient(90deg,transparent,var(--gold));
+}
+.flourish i:last-child{background:linear-gradient(90deg,var(--gold),transparent)}
+.flourish span{font-size:.78rem;filter:drop-shadow(0 0 7px rgba(201,162,74,.55))}
+.flourish--dark span{color:var(--gold)}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+.hero{
+  position:relative;
+  min-height:100svh;
+  display:flex;align-items:center;justify-content:center;
+  padding:calc(env(safe-area-inset-top) + 26px) 20px calc(env(safe-area-inset-bottom) + 34px);
+  overflow:hidden;
+  text-align:center;
+  isolation:isolate;
+}
+.hero__bg{
+  position:absolute;inset:-12%;z-index:-3;
+  background:url("/affiche.png") center 32% / cover no-repeat;
+  transform:scale(1.12);
+  filter:blur(26px) saturate(1.15) brightness(.46);
+}
+.hero__overlay{
+  position:absolute;inset:0;z-index:-2;
+  background:
+    radial-gradient(85% 62% at 50% 42%, rgba(7,3,2,.12), rgba(6,3,2,.7) 82%),
+    linear-gradient(180deg, rgba(7,3,2,.72) 0%, rgba(7,3,2,.34) 26%, rgba(7,3,2,.5) 68%, rgba(6,3,2,.95) 100%);
+}
+.hero__frame{
+  position:absolute;inset:14px;z-index:-1;pointer-events:none;
+  border:1px solid rgba(201,162,74,.45);
+  border-radius:6px;
+  box-shadow:inset 0 0 0 4px rgba(7,3,2,.6),
+             inset 0 0 0 5px rgba(201,162,74,.22),
+             inset 0 0 70px rgba(0,0,0,.55);
+}
+.hero__inner{
+  position:relative;
+  max-width:560px;
+  animation:rise .9s var(--ease) both;
+}
+
+/* Marquise — guirlande d'ampoules */
+.bulbs{
+  height:14px;width:min(300px,72%);margin:0 auto 16px;
+  background-image:radial-gradient(circle, #ffe7ab 0 2.4px, rgba(255,205,120,.18) 3px, transparent 3.6px);
+  background-size:21px 14px;background-position:center;
+  filter:drop-shadow(0 0 5px rgba(255,200,110,.75));
+  animation:flicker 3.6s infinite steps(1);
+}
+
+/* Affiche encadrée — les 3 personnages bien visibles */
+.poster{
+  margin:0 auto;
+  width:min(330px,82vw);
+  padding:6px;border-radius:8px;
+  background:linear-gradient(155deg,#ecd089 0%,#9a6f28 38%,#f4dd9e 64%,#86601f 100%);
+  box-shadow:0 34px 74px rgba(0,0,0,.72),0 0 44px rgba(201,162,74,.26),inset 0 0 0 1px rgba(0,0,0,.45);
+}
+.poster__img{
+  display:block;width:100%;height:auto;border-radius:4px;
+  border:1px solid rgba(0,0,0,.55);
+}
+.hero__house{
+  margin:16px 0 2px;
+  font-family:"Cinzel",serif;font-weight:600;
+  font-size:.94rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);
+  text-shadow:0 1px 8px rgba(0,0,0,.85);
+}
+
+.hero__kicker{
+  margin:0 0 12px;
+  font-family:"Cinzel",serif;font-weight:600;
+  font-size:.82rem;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-light);
+  text-shadow:0 1px 8px rgba(0,0,0,.8);
+}
+.hero__present{
+  margin:0 0 6px;
+  font-family:"Playfair Display",serif;font-style:italic;
+  font-size:1.02rem;color:var(--muted);
+  text-shadow:0 1px 8px rgba(0,0,0,.9);
+}
+.wordmark{
+  font-family:"Cinzel Decorative","Cinzel",serif;font-weight:900;
+  font-size:clamp(3.6rem,21vw,7rem);
+  letter-spacing:.01em;line-height:.86;
+  margin:4px 0 6px;
+  filter:drop-shadow(0 3px 1px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(201,162,74,.32));
+}
+.wordmark__line{display:block}
+.wordmark__line:last-child{margin-top:-.06em}
+
+.hero__satine{
+  margin:14px 0 10px;
+  font-family:"Cinzel",serif;font-weight:600;
+  letter-spacing:.36em;text-transform:uppercase;font-size:.82rem;
+  color:var(--gold);
+}
+.hero__quote{
+  margin:0 auto 16px;max-width:30ch;
+  font-family:"Playfair Display",serif;font-style:italic;
+  font-size:1.06rem;color:var(--cream);
+  text-shadow:0 1px 10px rgba(0,0,0,.9);
+}
+.hero__venue{
+  margin:0;
+  font-family:"Cinzel",serif;font-weight:500;
+  letter-spacing:.2em;text-transform:uppercase;font-size:.72rem;
+  color:var(--muted);
+}
+
+.scrollcue{
+  display:inline-flex;flex-direction:column;align-items:center;gap:4px;
+  margin-top:18px;text-decoration:none;
+  font-family:"Cinzel",serif;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--gold-light);opacity:.92;
+}
+.scrollcue svg{animation:bob 2s var(--ease) infinite}
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+main{
+  max-width:var(--maxw);
+  margin:0 auto;
+  padding:44px 16px 60px;
+}
+section[id]{scroll-margin-top:18px}
+
+.section-head{margin-bottom:18px;text-align:center}
+.section-head h2{
+  font-family:"Cinzel Decorative","Cinzel",serif;font-weight:900;
+  font-size:clamp(2rem,8.5vw,3.1rem);
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.5));
+}
+.subhead{
+  margin:26px 0 12px;
+  font-family:"Cinzel",serif;font-weight:600;font-size:1.04rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+  text-align:center;
+}
+
+/* =========================================================
+   DATES
+   ========================================================= */
+.dates{margin-bottom:14px}
+.dates__grid{display:grid;gap:16px}
+.datecard{
+  position:relative;display:block;text-decoration:none;
+  padding:2px;border-radius:16px;
+  background:linear-gradient(160deg,rgba(201,162,74,.9),rgba(120,86,30,.28) 45%,rgba(201,162,74,.8));
+  box-shadow:0 18px 38px rgba(0,0,0,.5);
+  transition:transform .35s var(--ease), box-shadow .35s var(--ease), filter .35s var(--ease);
+}
+.datecard > *{position:relative;z-index:1}
+.datecard::after{
+  content:"";position:absolute;inset:2px;border-radius:14px;z-index:0;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(125,22,32,.55), transparent 62%),
+    linear-gradient(180deg, rgba(28,8,9,.97), rgba(9,4,3,.99));
+  box-shadow:inset 0 0 30px rgba(201,162,74,.1);
+}
+.datecard{display:flex;flex-direction:column;align-items:center;text-align:center;padding:22px 18px}
+.datecard__tag{
+  font-family:"Cinzel",serif;font-weight:600;font-size:.66rem;
+  letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;
+}
+.datecard__day{
+  font-family:"Playfair Display",serif;font-style:italic;font-size:1.5rem;color:var(--cream);
+}
+.datecard__date{
+  font-family:"Cinzel",serif;font-weight:600;font-size:.92rem;
+  letter-spacing:.12em;color:var(--muted);margin-top:2px;
+}
+.datecard__time{
+  font-family:"Cinzel Decorative","Cinzel",serif;font-weight:900;
+  font-size:2.7rem;line-height:1;margin:10px 0 12px;
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.5));
+}
+.datecard__go{
+  font-family:"Cinzel",serif;font-weight:600;font-size:.72rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold-light);
+}
+.datecard--gala{transform:scale(1.015)}
+.datecard--gala::after{box-shadow:inset 0 0 40px rgba(201,162,74,.18)}
+.datecard:hover,.datecard:focus-visible{
+  transform:translateY(-4px);
+  box-shadow:0 26px 50px rgba(0,0,0,.6),0 0 26px rgba(201,162,74,.35);
+  filter:brightness(1.06);outline:none;
+}
+.datecard:active{transform:translateY(-1px) scale(.99)}
+
+.dates__note{
+  margin:20px auto 0;max-width:46ch;text-align:center;
+  color:var(--muted);font-style:italic;
+}
+
+/* =========================================================
+   MENU — 6 gros boutons
+   ========================================================= */
+.menu{display:grid;gap:14px;margin:30px 0 8px}
+.menu__btn{
+  position:relative;display:flex;align-items:center;gap:16px;
+  padding:18px 18px;border-radius:14px;text-decoration:none;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(120% 120% at 0% 0%, rgba(125,22,32,.5), transparent 55%),
+    linear-gradient(180deg, rgba(26,8,9,.96), rgba(9,4,3,.98));
+  box-shadow:0 14px 30px rgba(0,0,0,.45), inset 0 0 0 4px rgba(7,3,2,.6), inset 0 0 0 5px rgba(201,162,74,.16);
+  color:var(--cream);
+  transition:transform .3s var(--ease), box-shadow .3s var(--ease), border-color .3s var(--ease);
+  overflow:hidden;
+}
+.menu__btn::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:4px;
+  background:var(--gold-grad);opacity:.85;
+}
+.menu__no{
+  flex:0 0 auto;width:48px;height:48px;display:grid;place-items:center;
+  font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.2rem;
+  color:var(--gold-light);border-radius:50%;
+  border:1px solid rgba(201,162,74,.5);
+  background:radial-gradient(circle at 50% 30%, rgba(201,162,74,.25), rgba(9,4,3,.9));
+  box-shadow:inset 0 0 12px rgba(201,162,74,.25);
+}
+.menu__txt{flex:1 1 auto;display:flex;flex-direction:column;line-height:1.15}
+.menu__txt strong{
+  font-family:"Cinzel",serif;font-weight:700;font-size:1.18rem;letter-spacing:.04em;
+  color:var(--gold-light);
+}
+.menu__txt em{
+  font-family:"Playfair Display",serif;font-style:italic;font-size:.92rem;color:var(--muted);
+}
+.menu__chev{
+  flex:0 0 auto;font-size:1.4rem;color:var(--gold);
+  transition:transform .3s var(--ease);
+}
+.menu__btn:hover,.menu__btn:focus-visible{
+  transform:translateY(-3px);border-color:rgba(201,162,74,.7);
+  box-shadow:0 22px 42px rgba(0,0,0,.55),0 0 24px rgba(201,162,74,.28),
+             inset 0 0 0 4px rgba(7,3,2,.6), inset 0 0 0 5px rgba(201,162,74,.34);
+  outline:none;
+}
+.menu__btn:hover .menu__chev,.menu__btn:focus-visible .menu__chev{transform:translateX(6px)}
+.menu__btn:active{transform:translateY(-1px) scale(.992)}
+
+/* =========================================================
+   PANELS — sections cadre ornemental
+   ========================================================= */
+.panel{
+  position:relative;margin:34px 0;padding:2px;border-radius:20px;
+  background:linear-gradient(155deg,rgba(201,162,74,.85),rgba(120,86,30,.3) 42%,rgba(201,162,74,.78));
+  box-shadow:0 30px 64px rgba(0,0,0,.55);
+}
+.panel__inner{
+  position:relative;border-radius:18px;padding:28px 18px 32px;overflow:hidden;
+  background:
+    radial-gradient(130% 70% at 50% -8%, rgba(125,22,32,.40), transparent 58%),
+    linear-gradient(180deg, rgba(20,7,7,.98), rgba(8,3,3,.99));
+}
+/* coins diamant */
+.panel::before,.panel::after,
+.panel__inner::before,.panel__inner::after{
+  content:"";position:absolute;width:9px;height:9px;z-index:4;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold-deep));
+  transform:rotate(45deg);box-shadow:0 0 9px rgba(201,162,74,.6);
+}
+.panel::before{top:13px;left:13px}
+.panel::after{bottom:13px;right:13px}
+.panel__inner::before{top:13px;right:13px}
+.panel__inner::after{bottom:13px;left:13px}
+
+.panel p{color:var(--muted)}
+.panel p strong{color:var(--cream)}
+.venue-line{
+  font-family:"Cinzel",serif;font-weight:500;letter-spacing:.16em;text-transform:uppercase;
+  font-size:.74rem;color:var(--gold);text-align:center;margin:0 0 14px;
+}
+.inline-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.inline-links a{
+  flex:1 1 auto;text-align:center;text-decoration:none;
+  padding:12px 14px;border-radius:10px;border:1px solid var(--line);
+  font-family:"Cinzel",serif;font-weight:600;font-size:.8rem;letter-spacing:.08em;
+  color:var(--gold-light);background:rgba(9,4,3,.6);
+  transition:background .25s var(--ease),border-color .25s var(--ease);
+}
+.inline-links a:hover{background:rgba(125,22,32,.4);border-color:rgba(201,162,74,.7)}
+
+/* =========================================================
+   PROGRAMME — actes numérotés
+   ========================================================= */
+.acts{display:grid;gap:14px;margin-top:22px}
+.act{
+  display:flex;gap:16px;align-items:flex-start;
+  padding:18px 16px;border-radius:12px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(14,5,5,.9), rgba(8,3,3,.92));
+  box-shadow:inset 0 0 22px rgba(201,162,74,.06);
+}
+.act__no{
+  flex:0 0 auto;
+  font-family:"Cinzel Decorative",serif;font-weight:900;font-size:2.4rem;line-height:.9;
+  min-width:1.4em;text-align:center;
+  filter:drop-shadow(0 2px 0 rgba(0,0,0,.5));
+}
+.act__body h3{
+  font-family:"Cinzel",serif;font-weight:700;font-size:1.12rem;color:var(--gold-light);
+  margin-bottom:6px;letter-spacing:.02em;
+}
+.act__meta{margin:2px 0;color:var(--muted);font-style:italic;font-size:.98rem}
+.act__body p{margin:4px 0 0}
+
+/* =========================================================
+   DISTRIBUTION
+   ========================================================= */
+.cast-grid{display:grid;gap:14px;grid-template-columns:1fr 1fr;margin-top:6px}
+.cast{
+  margin:0;text-align:center;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(16,6,6,.92), rgba(8,3,3,.95));
+  box-shadow:0 16px 34px rgba(0,0,0,.5),inset 0 0 20px rgba(201,162,74,.08);
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease);
+}
+.cast:hover{transform:translateY(-4px);box-shadow:0 24px 46px rgba(0,0,0,.6),0 0 24px rgba(201,162,74,.28)}
+.cast__img{display:block;width:100%;height:auto;border-bottom:1px solid var(--line)}
+.cast figcaption{padding:12px 8px 14px}
+.cast__role{
+  display:block;font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.16rem;
+}
+.cast__name{
+  display:block;margin-top:3px;
+  font-family:"Playfair Display",serif;font-style:italic;font-size:.96rem;color:var(--cream);
+}
+
+/* =========================================================
+   ACCORDÉONS
+   ========================================================= */
+.acc{
+  margin:16px 0 0;border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(14,5,5,.9), rgba(8,3,3,.92));
+}
+.acc summary{
+  list-style:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 18px;
+  font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.35rem;
+  color:var(--gold-light);
+  background:radial-gradient(120% 120% at 0 0, rgba(125,22,32,.35), transparent 60%);
+}
+.acc summary::-webkit-details-marker{display:none}
+.acc__sign{position:relative;width:18px;height:18px;flex:0 0 auto}
+.acc__sign::before,.acc__sign::after{
+  content:"";position:absolute;background:var(--gold);border-radius:2px;
+  transition:transform .3s var(--ease),opacity .3s var(--ease);
+}
+.acc__sign::before{top:8px;left:0;width:18px;height:2px}
+.acc__sign::after{left:8px;top:0;width:2px;height:18px}
+.acc[open] .acc__sign::after{transform:rotate(90deg);opacity:0}
+.acc__body{padding:4px 18px 20px}
+.acc[open] .acc__body{animation:fade .45s var(--ease) both}
+
+/* scènes */
+.scenes{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.scene{
+  position:relative;padding:14px 14px 14px 40px;border-radius:10px;
+  background:rgba(10,4,4,.6);border:1px solid rgba(201,162,74,.22);
+}
+.scene::before{
+  content:"";position:absolute;left:16px;top:18px;width:9px;height:9px;
+  background:linear-gradient(135deg,var(--gold-light),var(--gold-deep));
+  transform:rotate(45deg);box-shadow:0 0 8px rgba(201,162,74,.5);
+}
+.scene h4{
+  font-family:"Cinzel",serif;font-weight:700;font-size:1.04rem;color:var(--gold-light);
+  letter-spacing:.02em;
+}
+.scene p{margin:6px 0 0;color:var(--muted)}
+.cue{
+  display:inline-block;margin-top:7px;
+  font-family:"Cinzel",serif;font-weight:600;font-size:.68rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--gold);
+  padding:3px 10px;border:1px solid rgba(201,162,74,.4);border-radius:999px;
+  background:rgba(125,22,32,.22);
+}
+
+/* =========================================================
+   PILLS (groupes / stages)
+   ========================================================= */
+.pill-grid{display:grid;gap:10px;margin-top:14px}
+.pill-grid span{
+  padding:13px 15px;border-radius:10px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(16,6,6,.9), rgba(8,3,3,.92));
+  font-family:"Cinzel",serif;font-weight:600;font-size:.92rem;color:var(--gold-light);
+  box-shadow:inset 0 0 16px rgba(201,162,74,.06);
+}
+
+/* =========================================================
+   CONCOURS
+   ========================================================= */
+.laureats{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:10px}
+.laureats li{
+  display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;
+  padding:13px 16px;border-radius:10px;
+  border:1px solid rgba(201,162,74,.28);
+  background:linear-gradient(180deg, rgba(14,5,5,.85), rgba(8,3,3,.9));
+}
+.laureats__name{font-family:"Cinzel",serif;font-weight:700;font-size:1.06rem;color:var(--cream)}
+.laureats__prize{font-style:italic;color:var(--gold);font-size:.95rem}
+.laureats--prize{border-color:rgba(201,162,74,.5);box-shadow:inset 0 0 22px rgba(201,162,74,.1)}
+.medal{color:var(--gold-light);font-size:1.1rem;filter:drop-shadow(0 0 6px rgba(201,162,74,.6))}
+
+.callout{
+  display:flex;gap:14px;align-items:flex-start;margin-top:18px;
+  padding:18px 18px;border-radius:12px;
+  border:1px solid rgba(201,162,74,.55);
+  background:
+    radial-gradient(120% 120% at 0 0, rgba(125,22,32,.5), transparent 60%),
+    linear-gradient(180deg, rgba(22,8,9,.95), rgba(9,4,3,.96));
+  box-shadow:inset 0 0 26px rgba(201,162,74,.14);
+}
+.callout__star{font-size:1.4rem;color:var(--gold-light);filter:drop-shadow(0 0 8px rgba(201,162,74,.6))}
+.callout p{margin:0;color:var(--cream)}
+.callout strong{color:var(--gold-light)}
+
+/* =========================================================
+   MERCI / INFOS — cartes
+   ========================================================= */
+.thanks-grid{display:grid;gap:12px;grid-template-columns:1fr 1fr;margin-top:8px}
+.thanks{
+  padding:16px 15px;border-radius:12px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(15,6,6,.9), rgba(8,3,3,.93));
+  box-shadow:inset 0 0 18px rgba(201,162,74,.06);
+}
+.thanks h3{
+  font-family:"Cinzel",serif;font-weight:700;font-size:1.02rem;color:var(--gold-light);
+  margin-bottom:6px;letter-spacing:.02em;
+}
+.thanks p{margin:0;color:var(--muted);font-size:.96rem}
+.thanks--wide{grid-column:1 / -1;text-align:center}
+
+.info-card{
+  margin-top:16px;padding:20px 18px;border-radius:14px;
+  border:1px solid var(--line);
+  background:
+    radial-gradient(120% 90% at 50% 0%, rgba(125,22,32,.34), transparent 60%),
+    linear-gradient(180deg, rgba(17,6,6,.94), rgba(8,3,3,.96));
+}
+.info-card h3{
+  font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.3rem;color:var(--gold-light);
+}
+.info-card__meta{
+  margin:6px 0 0;font-family:"Cinzel",serif;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;font-size:.78rem;color:var(--gold);
+}
+
+/* =========================================================
+   CTA / DVD
+   ========================================================= */
+.panel--dvd .panel__inner{
+  background:
+    radial-gradient(130% 80% at 50% -10%, rgba(125,22,32,.6), transparent 60%),
+    linear-gradient(180deg, rgba(24,8,9,.98), rgba(8,3,3,.99));
+}
+.cta{
+  display:flex;flex-direction:column;align-items:center;gap:3px;
+  margin-top:16px;padding:20px 18px;border-radius:14px;text-decoration:none;text-align:center;
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease),filter .3s var(--ease);
+}
+.cta__label{font-family:"Cinzel",serif;font-weight:700;font-size:1.16rem;letter-spacing:.03em}
+.cta__sub{font-family:"Playfair Display",serif;font-style:italic;font-size:.9rem;opacity:.9}
+.cta--primary{
+  color:#fff5e6;
+  border:1px solid rgba(201,162,74,.6);
+  background:linear-gradient(165deg,#9a121f 0%,#6b0d16 55%,#430810 100%);
+  box-shadow:0 18px 36px rgba(0,0,0,.5),inset 0 0 0 4px rgba(7,3,2,.4),inset 0 0 0 5px rgba(201,162,74,.3);
+}
+.cta--primary .cta__label{color:var(--gold-light)}
+.cta--ghost{
+  color:var(--gold-light);
+  border:1px solid var(--line);
+  background:rgba(9,4,3,.5);
+}
+.cta:hover,.cta:focus-visible{transform:translateY(-3px);filter:brightness(1.07);outline:none}
+.cta--primary:hover,.cta--primary:focus-visible{box-shadow:0 26px 48px rgba(0,0,0,.6),0 0 28px rgba(201,162,74,.4),inset 0 0 0 4px rgba(7,3,2,.4),inset 0 0 0 5px rgba(201,162,74,.5)}
+.cta:active{transform:translateY(-1px) scale(.992)}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+.footer{
+  text-align:center;padding:46px 22px calc(env(safe-area-inset-bottom) + 60px);
+  border-top:1px solid var(--line);
+  background:linear-gradient(180deg, transparent, rgba(125,22,32,.16)),#060302;
+}
+.footer .flourish{margin-bottom:18px}
+.footer__quote{
+  margin:0 auto 14px;max-width:34ch;
+  font-family:"Playfair Display",serif;font-style:italic;font-size:1.1rem;color:var(--cream);
+}
+.footer__sign{
+  margin:0;font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.2rem;color:var(--gold-light);
+}
+.footer__small{
+  margin:10px 0 0;font-family:"Cinzel",serif;font-size:.7rem;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);
+}
+
+/* =========================================================
+   BACK TO TOP
+   ========================================================= */
+.totop{
+  position:fixed;right:16px;bottom:calc(env(safe-area-inset-bottom) + 16px);z-index:30;
+  width:50px;height:50px;display:grid;place-items:center;border-radius:50%;
+  text-decoration:none;font-size:1.4rem;color:var(--gold-light);
+  border:1px solid rgba(201,162,74,.55);
+  background:radial-gradient(circle at 50% 30%, rgba(125,22,32,.9), rgba(9,4,3,.95));
+  box-shadow:0 10px 26px rgba(0,0,0,.55),inset 0 0 14px rgba(201,162,74,.2);
+  opacity:0;transform:translateY(14px) scale(.9);pointer-events:none;
+  transition:opacity .35s var(--ease),transform .35s var(--ease);
+}
+.totop.show{opacity:1;transform:none;pointer-events:auto}
+.totop:active{transform:scale(.94)}
+
+/* =========================================================
+   REVEAL
+   ========================================================= */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   KEYFRAMES
+   ========================================================= */
+@keyframes rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+@keyframes flicker{
+  0%,100%{opacity:1}
+  47%{opacity:1}48%{opacity:.55}49%{opacity:1}
+  72%{opacity:1}73%{opacity:.6}74%{opacity:1}
+}
+
+/* =========================================================
+   RESPONSIVE — tablette / desktop
+   ========================================================= */
+@media (min-width:640px){
+  body{font-size:1.12rem}
+  .dates__grid{grid-template-columns:repeat(3,1fr)}
+  .menu{grid-template-columns:1fr 1fr}
+  .panel__inner{padding:34px 30px 38px}
+  main{padding:56px 20px 70px}
+}
+@media (min-width:900px){
+  .cast-grid{grid-template-columns:repeat(4,1fr)}
+  .thanks-grid{grid-template-columns:repeat(3,1fr)}
+}
+
+/* =========================================================
+   ACCESSIBILITÉ — motion réduit
+   ========================================================= */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .reveal{opacity:1;transform:none}
+}

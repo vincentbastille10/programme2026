@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Rye&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/src/style.css" />
 </head>
@@ -18,33 +18,43 @@
 
 <!-- ================= HERO ================= -->
 <header class="hero">
-  <div class="hero__bg" aria-hidden="true"></div>
-  <div class="hero__frame" aria-hidden="true"></div>
+  <div class="bulbs" aria-hidden="true"></div>
 
-  <div class="hero__inner">
-    <div class="bulbs" aria-hidden="true"></div>
-    <p class="hero__kicker">Centre de Danse Delphine&nbsp;Letort</p>
-    <p class="hero__present">présente son spectacle de fin d’année</p>
-
-    <div class="hero__stage">
-      <img class="hero__trio" src="/hero-trio.png" alt="Christian, Satine et Le Duc — Moulin Rouge 2026" />
-      <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__stage">
+    <img class="hero__photo" src="/hero-trio.png" alt="Christian, Satine et Le Duc — Moulin Rouge" />
+    <div class="hero__veil" aria-hidden="true"></div>
+    <div class="hero__title">
+      <p class="hero__house">Le Centre de Danse Delphine Letort présente</p>
       <h1 class="wordmark">
         <span class="wordmark__line">Moulin</span>
         <span class="wordmark__line">Rouge</span>
       </h1>
     </div>
-
-    <div class="flourish"><i></i><span>❖</span><i></i></div>
-    <p class="hero__year">Gala de fin d’année · 2026</p>
-    <p class="hero__quote">« Le secret de l’amour, c’est d’aimer et d’être aimé en retour… »</p>
-    <p class="hero__venue">Salle des Concerts · Le&nbsp;Mans</p>
-
-    <a class="scrollcue" href="#dates" aria-label="Découvrir le programme">
-      <span>Découvrir le programme</span>
-      <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </a>
   </div>
+
+  <nav class="showbtns" aria-label="Choisir une représentation">
+    <a class="showbtn" href="#repr-sam-15">
+      <span class="showbtn__tag">Matinée</span>
+      <span class="showbtn__day">Samedi</span>
+      <span class="showbtn__time">15h</span>
+    </a>
+    <a class="showbtn showbtn--gala" href="#repr-sam-20">
+      <span class="showbtn__tag">Soirée</span>
+      <span class="showbtn__day">Samedi</span>
+      <span class="showbtn__time">20h</span>
+    </a>
+    <a class="showbtn" href="#repr-dim-15">
+      <span class="showbtn__tag">Clôture</span>
+      <span class="showbtn__day">Dimanche</span>
+      <span class="showbtn__time">15h</span>
+    </a>
+  </nav>
+
+  <p class="hero__info">Salle des Concerts · Le Mans — 20 &amp; 21 juin 2026</p>
+
+  <a class="scrollcue" href="#dates" aria-label="Découvrir le programme">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </a>
 </header>
 
 <main>
@@ -279,15 +289,25 @@
   <!-- ================= MOULIN ROUGE 2e PARTIE ================= -->
   <section class="panel reveal" id="moulin">
     <div class="panel__inner">
-      <p class="kicker kicker--center">Deuxième partie</p>
-      <figure class="lumi-banner">
-        <img src="/moulin-lumineux.png" alt="Moulin Rouge" loading="lazy" />
-      </figure>
-      <h2 class="sr-only">Moulin Rouge</h2>
-      <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
+      <div class="section-head">
+        <p class="kicker">Deuxième partie</p>
+        <h2>Moulin Rouge</h2>
+        <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
+      </div>
 
       <h3 class="subhead">Distribution</h3>
-      <div class="cast-grid">
+
+      <figure class="host">
+        <img class="host__img" src="/harold-zidler.png" alt="Harold Zidler" loading="lazy" />
+        <figcaption class="host__cap">
+          <span class="host__role">Maître de cérémonie</span>
+          <span class="host__name">Harold Zidler</span>
+          <span class="host__desc">Propriétaire du Moulin Rouge — c’est lui qui ouvre les portes du cabaret et mène la fête tout au long du spectacle.</span>
+          <span class="host__actor">interprété par Quentin Malass</span>
+        </figcaption>
+      </figure>
+
+      <div class="cast-grid cast-grid--trio">
         <figure class="cast">
           <img class="cast__img" src="/satine.png" alt="Satine" loading="lazy" />
           <figcaption><span class="cast__role">Satine</span><span class="cast__name">Orianna Begat</span></figcaption>
@@ -299,10 +319,6 @@
         <figure class="cast">
           <img class="cast__img" src="/le-duc.png" alt="Le Duc" loading="lazy" />
           <figcaption><span class="cast__role">Le Duc</span><span class="cast__name">Léo Maindron</span></figcaption>
-        </figure>
-        <figure class="cast">
-          <img class="cast__img" src="/harold-zidler.png" alt="Harold Zidler" loading="lazy" />
-          <figcaption><span class="cast__role">Harold Zidler</span><span class="cast__name">Quentin Malass</span></figcaption>
         </figure>
       </div>
 

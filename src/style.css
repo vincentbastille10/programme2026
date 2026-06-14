@@ -130,22 +130,33 @@ h1,h2,h3,h4{margin:0;line-height:1.05}
   animation:flicker 3.6s infinite steps(1);
 }
 
-/* Affiche encadrée — les 3 personnages bien visibles */
-.poster{
-  margin:0 auto;
-  width:min(330px,82vw);
-  padding:6px;border-radius:8px;
-  background:linear-gradient(155deg,#ecd089 0%,#9a6f28 38%,#f4dd9e 64%,#86601f 100%);
-  box-shadow:0 34px 74px rgba(0,0,0,.72),0 0 44px rgba(201,162,74,.26),inset 0 0 0 1px rgba(0,0,0,.45);
+/* Gros plan sur les 3 personnages + titre or par-dessus */
+.hero__stage{
+  position:relative;margin:14px auto 2px;
+  width:min(440px,92vw);
+  padding:5px;border-radius:12px;overflow:hidden;
+  background:linear-gradient(155deg,#ecd089,#9a6f28 42%,#f4dd9e 66%,#86601f);
+  box-shadow:0 32px 70px rgba(0,0,0,.72),0 0 42px rgba(201,162,74,.24);
 }
-.poster__img{
-  display:block;width:100%;height:auto;border-radius:4px;
-  border:1px solid rgba(0,0,0,.55);
+.hero__trio{
+  display:block;width:100%;height:auto;border-radius:8px;
+  filter:brightness(.82) saturate(1.06) contrast(1.02);
 }
-.hero__house{
-  margin:16px 0 2px;
+.hero__scrim{
+  position:absolute;inset:5px;border-radius:8px;pointer-events:none;
+  background:
+    radial-gradient(120% 78% at 50% 40%, transparent 0%, rgba(6,3,2,.42) 80%),
+    linear-gradient(180deg, rgba(5,2,1,.92) 0%, rgba(6,3,2,.5) 14%, rgba(6,3,2,.05) 34%, rgba(6,3,2,.16) 54%, rgba(6,3,2,.74) 82%, rgba(5,2,1,.94) 100%);
+}
+.hero__stage .wordmark{
+  position:absolute;left:0;right:0;bottom:3.5%;margin:0;z-index:2;
+  font-size:clamp(2.7rem,15.5vw,4.6rem);
+  filter:drop-shadow(0 2px 5px rgba(0,0,0,.92)) drop-shadow(0 0 22px rgba(201,162,74,.5));
+}
+.hero__year{
+  margin:16px 0 8px;
   font-family:"Cinzel",serif;font-weight:600;
-  font-size:.94rem;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);
+  font-size:.8rem;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-light);
   text-shadow:0 1px 8px rgba(0,0,0,.85);
 }
 
@@ -412,6 +423,33 @@ section[id]{scroll-margin-top:18px}
 .cast__name{
   display:block;margin-top:3px;
   font-family:"Playfair Display",serif;font-style:italic;font-size:.96rem;color:var(--cream);
+}
+
+/* Portraits comédiens — agrémentent les 3 représentations */
+.repr-art{
+  margin:0 auto 18px;width:min(196px,54%);
+  border-radius:12px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 18px 36px rgba(0,0,0,.55),inset 0 0 0 4px rgba(7,3,2,.5),inset 0 0 0 5px rgba(201,162,74,.2);
+  transition:transform .35s var(--ease);
+}
+.repr-art:hover{transform:translateY(-4px)}
+.repr-art img{display:block;width:100%;height:auto}
+.repr-art--lead{width:min(224px,64%)}
+
+/* Bannière lumineuse — Moulin Rouge (2e partie) */
+.kicker--center{text-align:center}
+.lumi-banner{
+  margin:8px 0 6px;border-radius:14px;overflow:hidden;
+  border:1px solid var(--line);
+  box-shadow:0 22px 46px rgba(0,0,0,.6),inset 0 0 0 4px rgba(7,3,2,.5),inset 0 0 0 5px rgba(201,162,74,.24);
+}
+.lumi-banner img{
+  display:block;width:100%;height:250px;object-fit:cover;object-position:center 42%;
+}
+.sr-only{
+  position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;
 }
 
 /* =========================================================

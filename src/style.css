@@ -90,69 +90,69 @@ h1,h2,h3,h4{margin:0;line-height:1.05}
   position:relative;
   min-height:100svh;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:calc(env(safe-area-inset-top) + 14px) 0 calc(env(safe-area-inset-bottom) + 24px);
-  overflow:hidden;
+  padding:calc(env(safe-area-inset-top) + 18px) 0 calc(env(safe-area-inset-bottom) + 28px);
   text-align:center;
-  background:#060302;
+  background:
+    radial-gradient(120% 58% at 50% 0%, rgba(125,22,32,.3), transparent 62%),
+    #060302;
   isolation:isolate;
 }
 
 /* Marquise — guirlande d'ampoules */
 .bulbs{
-  height:14px;width:min(300px,72%);margin:0 auto 10px;
+  height:14px;width:min(300px,72%);margin:0 auto 14px;
   background-image:radial-gradient(circle, #ffe7ab 0 2.4px, rgba(255,205,120,.18) 3px, transparent 3.6px);
   background-size:21px 14px;background-position:center;
   filter:drop-shadow(0 0 5px rgba(255,200,110,.75));
   animation:flicker 3.6s infinite steps(1);
 }
 
-/* Gros plan sur les 3 personnages — dégradé vers le noir, titre or par-dessus */
-.hero__stage{
-  position:relative;width:100%;
+/* Affiche = poster premium — les 3 personnages bien visibles */
+.poster{
+  margin:0 auto;width:min(440px,90vw);
+  padding:6px;border-radius:10px;
+  background:linear-gradient(160deg,#f0d792,#9a6f28 40%,#f6dd9e 64%,#7d5a1d);
+  box-shadow:0 36px 78px rgba(0,0,0,.74),0 0 48px rgba(201,162,74,.26);
   animation:rise .9s var(--ease) both;
 }
-.hero__photo{
-  display:block;width:100%;height:auto;
-  filter:brightness(.56) saturate(1.04) contrast(1.05);
+.poster__img{
+  display:block;width:100%;height:auto;border-radius:5px;
+  border:1px solid rgba(0,0,0,.5);
 }
-.hero__veil{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    radial-gradient(118% 66% at 50% 32%, rgba(6,3,2,.06) 0%, rgba(6,3,2,.55) 88%),
-    linear-gradient(180deg,
-      #060302 0%, rgba(6,3,2,.74) 10%, rgba(6,3,2,.26) 27%,
-      rgba(6,3,2,.2) 44%, rgba(6,3,2,.3) 55%,
-      rgba(6,3,2,.7) 72%, rgba(5,2,1,.96) 88%, #050201 100%);
-}
-.hero__title{
-  position:absolute;left:0;right:0;bottom:3.5%;z-index:2;padding:0 14px;
-}
+
+/* Titre sous l'affiche */
+.hero__title{margin:20px auto 0;max-width:560px;padding:0 18px}
 .hero__house{
-  margin:0 auto 3px;max-width:30ch;
-  font-family:"Playfair Display",serif;font-style:italic;font-weight:600;
-  font-size:clamp(.82rem,3.6vw,1.06rem);letter-spacing:.03em;line-height:1.25;
+  margin:0 0 5px;
+  font-family:"Cinzel",serif;font-weight:600;
+  font-size:clamp(.66rem,2.9vw,.92rem);letter-spacing:.1em;text-transform:uppercase;
   color:var(--gold-light);
-  text-shadow:0 1px 10px rgba(0,0,0,.98);
 }
-.hero__stage .wordmark{
-  margin:0;font-size:clamp(3.6rem,22vw,6.6rem);
-  filter:drop-shadow(0 2px 5px rgba(0,0,0,.96)) drop-shadow(0 3px 0 rgba(58,30,8,.6)) drop-shadow(0 0 30px rgba(201,162,74,.55));
+.hero__present{
+  margin:0 0 8px;
+  font-family:"Playfair Display",serif;font-style:italic;font-weight:500;
+  font-size:clamp(.95rem,3.8vw,1.16rem);color:var(--muted);
 }
 .wordmark{
-  font-family:"Rye","Cinzel Decorative",serif;font-weight:400;
+  font-family:"Cinzel Decorative","Cinzel",serif;font-weight:900;
   text-transform:uppercase;
-  font-size:clamp(3.6rem,21vw,7rem);
-  letter-spacing:.012em;line-height:.94;
-  margin:4px 0 6px;
-  filter:drop-shadow(0 3px 1px rgba(0,0,0,.65)) drop-shadow(0 0 26px rgba(201,162,74,.32));
+  font-size:clamp(2.3rem,12vw,4.6rem);
+  letter-spacing:.015em;line-height:1.02;
+  margin:2px 0 4px;
+  filter:drop-shadow(0 2px 0 rgba(58,30,8,.5)) drop-shadow(0 4px 7px rgba(0,0,0,.5)) drop-shadow(0 0 24px rgba(201,162,74,.32));
 }
-.wordmark__line{display:block}
-.wordmark__line:last-child{margin-top:-.02em}
+.wordmark__line{display:inline}
+.hero__dates{
+  margin:10px 0 0;
+  font-family:"Cinzel",serif;font-weight:600;
+  font-size:clamp(.82rem,3.4vw,1rem);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);
+}
 
 /* 3 boutons — choix de la représentation */
 .showbtns{
   display:grid;grid-template-columns:repeat(3,1fr);gap:10px;
-  width:100%;max-width:540px;margin:8px auto 0;padding:0 16px;
+  width:100%;max-width:540px;margin:22px auto 0;padding:0 16px;
 }
 .showbtn{
   display:flex;flex-direction:column;align-items:center;gap:1px;
@@ -414,6 +414,32 @@ section[id]{scroll-margin-top:18px}
 .cast-grid--trio .cast figcaption{padding:10px 5px 12px}
 .cast-grid--trio .cast__role{font-size:1rem}
 .cast-grid--trio .cast__name{font-size:.82rem}
+/* Zidler — Maître de cérémonie (aussi grand que les autres, centré) */
+.cast-grid--host{grid-template-columns:1fr;max-width:164px;margin:0 auto 16px}
+.cast__tag{
+  display:block;margin-bottom:3px;
+  font-family:"Cinzel",serif;font-weight:600;font-size:.6rem;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--gold);
+}
+
+/* Portraits dans le récit (rythment la lecture) */
+.scene--art{overflow:hidden}
+.scene-figure{
+  float:right;width:106px;margin:2px 0 10px 14px;
+  border-radius:9px;overflow:hidden;border:1px solid var(--line);
+  box-shadow:0 12px 24px rgba(0,0,0,.5),inset 0 0 0 3px rgba(7,3,2,.5);
+}
+.scene-figure img{display:block;width:100%;height:auto}
+
+/* Partenaires */
+.partners{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:18px}
+.partner{
+  padding:12px 18px;border-radius:10px;
+  border:1px solid var(--line);
+  background:linear-gradient(180deg, rgba(16,6,6,.9), rgba(8,3,3,.92));
+  font-family:"Cinzel",serif;font-weight:600;font-size:.92rem;letter-spacing:.06em;color:var(--gold-light);
+  box-shadow:inset 0 0 16px rgba(201,162,74,.07);
+}
 
 /* Portraits comédiens — agrémentent les 3 représentations */
 .repr-art{
@@ -635,8 +661,12 @@ section[id]{scroll-margin-top:18px}
 }
 .footer .flourish{margin-bottom:18px}
 .footer__quote{
-  margin:0 auto 14px;max-width:34ch;
+  margin:0 auto 12px;max-width:34ch;
   font-family:"Playfair Display",serif;font-style:italic;font-size:1.1rem;color:var(--cream);
+}
+.footer__word{
+  margin:0 auto 16px;max-width:34ch;
+  font-family:"Playfair Display",serif;font-style:italic;font-weight:600;font-size:1.06rem;color:var(--gold-light);
 }
 .footer__sign{
   margin:0;font-family:"Cinzel Decorative",serif;font-weight:700;font-size:1.2rem;color:var(--gold-light);

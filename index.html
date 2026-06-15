@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;0,600;1,500&family=Rye&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700;900&family=Cinzel:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=EB+Garamond:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/src/style.css" />
 </head>
@@ -20,16 +20,16 @@
 <header class="hero">
   <div class="bulbs" aria-hidden="true"></div>
 
-  <div class="hero__stage">
-    <img class="hero__photo" src="/hero-trio.png" alt="Christian, Satine et Le Duc — Moulin Rouge" />
-    <div class="hero__veil" aria-hidden="true"></div>
-    <div class="hero__title">
-      <p class="hero__house">Le Centre de Danse Delphine Letort présente</p>
-      <h1 class="wordmark">
-        <span class="wordmark__line">Moulin</span>
-        <span class="wordmark__line">Rouge</span>
-      </h1>
-    </div>
+  <figure class="poster">
+    <img class="poster__img" src="/hero-poster.png" alt="Christian, Satine et Le Duc — Moulin Rouge 2026" />
+  </figure>
+
+  <div class="hero__title">
+    <p class="hero__house">Centre de Danse Delphine Letort</p>
+    <p class="hero__present">présente son spectacle de fin d’année</p>
+    <h1 class="wordmark">Moulin Rouge</h1>
+    <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
+    <p class="hero__dates">20 &amp; 21 juin 2026</p>
   </div>
 
   <nav class="showbtns" aria-label="Choisir une représentation">
@@ -50,7 +50,7 @@
     </a>
   </nav>
 
-  <p class="hero__info">Salle des Concerts · Le Mans — 20 &amp; 21 juin 2026</p>
+  <p class="hero__info">Salle des Concerts · Le Mans</p>
 
   <a class="scrollcue" href="#dates" aria-label="Découvrir le programme">
     <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -138,7 +138,6 @@
         <h2>Samedi 20 juin — 15h</h2>
         <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
       </div>
-      <figure class="repr-art"><img src="/christian.png" alt="Christian" loading="lazy" /></figure>
       <p class="venue-line">Salle des Concerts · Le Mans</p>
       <p>Première partie — le programme de l’année — suivie du spectacle Moulin Rouge. Les élèves sont répartis entre les trois représentations.</p>
       <div class="inline-links">
@@ -155,7 +154,6 @@
         <h2>Samedi 20 juin — 20h</h2>
         <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
       </div>
-      <figure class="repr-art repr-art--lead"><img src="/satine.png" alt="Satine" loading="lazy" /></figure>
       <p class="venue-line">Salle des Concerts · Le Mans</p>
       <p>Première partie — le programme de l’année — suivie du spectacle Moulin Rouge.</p>
 
@@ -186,7 +184,6 @@
         <h2>Dimanche 21 juin — 15h</h2>
         <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
       </div>
-      <figure class="repr-art"><img src="/le-duc.png" alt="Le Duc" loading="lazy" /></figure>
       <p class="venue-line">Salle des Concerts · Le Mans</p>
       <p>Première partie — le programme de l’année — suivie du spectacle Moulin Rouge, pour clôturer ce gala de fin d’année.</p>
       <div class="inline-links">
@@ -297,17 +294,18 @@
 
       <h3 class="subhead">Distribution</h3>
 
-      <figure class="host">
-        <img class="host__img" src="/harold-zidler.png" alt="Harold Zidler" loading="lazy" />
-        <figcaption class="host__cap">
-          <span class="host__role">Maître de cérémonie</span>
-          <span class="host__name">Harold Zidler</span>
-          <span class="host__desc">Propriétaire du Moulin Rouge — c’est lui qui ouvre les portes du cabaret et mène la fête tout au long du spectacle.</span>
-          <span class="host__actor">interprété par Quentin Malass</span>
-        </figcaption>
-      </figure>
+      <div class="cast-grid cast-grid--host">
+        <figure class="cast">
+          <img class="cast__img" src="/harold-zidler.png" alt="Harold Zidler" loading="lazy" />
+          <figcaption><span class="cast__tag">Maître de cérémonie</span><span class="cast__role">Harold Zidler</span><span class="cast__name">Quentin Malass</span></figcaption>
+        </figure>
+      </div>
 
       <div class="cast-grid cast-grid--trio">
+        <figure class="cast">
+          <img class="cast__img" src="/le-duc.png" alt="Le Duc" loading="lazy" />
+          <figcaption><span class="cast__role">Le Duc</span><span class="cast__name">Léo Maindron</span></figcaption>
+        </figure>
         <figure class="cast">
           <img class="cast__img" src="/satine.png" alt="Satine" loading="lazy" />
           <figcaption><span class="cast__role">Satine</span><span class="cast__name">Orianna Begat</span></figcaption>
@@ -316,19 +314,16 @@
           <img class="cast__img" src="/christian.png" alt="Christian" loading="lazy" />
           <figcaption><span class="cast__role">Christian</span><span class="cast__name">Marceau Joliveau</span></figcaption>
         </figure>
-        <figure class="cast">
-          <img class="cast__img" src="/le-duc.png" alt="Le Duc" loading="lazy" />
-          <figcaption><span class="cast__role">Le Duc</span><span class="cast__name">Léo Maindron</span></figcaption>
-        </figure>
       </div>
 
       <details class="acc" open>
         <summary>Acte 1<span class="acc__sign" aria-hidden="true"></span></summary>
         <div class="acc__body">
           <ol class="scenes">
-            <li class="scene">
+            <li class="scene scene--art">
+              <figure class="scene-figure"><img src="/christian.png" alt="Christian" loading="lazy" /></figure>
               <h4>Christian seul devant le rideau</h4>
-              <p>Machine à écrire, table et chaise sur le côté.</p>
+              <p>Machine à écrire, table et chaise sur le côté. C’est lui qui ouvre le récit du Moulin Rouge.</p>
             </li>
             <li class="scene">
               <h4>Ouverture du rideau — Le Paris de Montmartre</h4>
@@ -338,7 +333,8 @@
               <h4>Les Ramoneurs</h4>
               <span class="cue">Cours du mercredi 13h45</span>
             </li>
-            <li class="scene">
+            <li class="scene scene--art">
+              <figure class="scene-figure"><img src="/satine.png" alt="Satine" loading="lazy" /></figure>
               <h4>La Bohème</h4>
               <span class="cue">Soul Jazz vendredi 18h15</span>
               <p>La Bohème révèle la rencontre et l’amour naissant entre Christian et Satine.</p>
@@ -385,7 +381,8 @@
               <h4>Where Is My Husband</h4>
               <span class="cue">Streets lundi 19h15 et 20h15</span>
             </li>
-            <li class="scene">
+            <li class="scene scene--art">
+              <figure class="scene-figure"><img src="/le-duc.png" alt="Le Duc" loading="lazy" /></figure>
               <h4>Sparkling Diamonds</h4>
               <span class="cue">Streets lundi 20h15</span>
               <p>Harold Zidler apparaît accompagné du Duc. Lorsque le rideau s’ouvre, la magnifique Satine apparaît enfin sous les projecteurs.</p>
@@ -427,12 +424,12 @@
         <h2>Concours &amp; Distinctions</h2>
         <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
       </div>
-      <p>Plusieurs élèves ont participé aux concours régionaux de la Confédération Nationale de Danse, organisés à Beaupréau, et ont obtenu de très beaux résultats.</p>
+      <p>Plusieurs élèves ont participé aux concours de la Confédération Nationale de Danse et y ont obtenu de très beaux résultats.</p>
 
       <ul class="laureats">
-        <li><span class="laureats__name">Romy Peltier</span></li>
-        <li><span class="laureats__name">Chloé Olichet</span></li>
-        <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Raphaël Cechetti</span><span class="laureats__prize">Premier Prix en danse classique et en jazz</span></li>
+        <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Romy Peltier</span><span class="laureats__prize">Premier Prix National en danse classique</span></li>
+        <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Chloé Olichet</span><span class="laureats__prize">Premier Prix National en danse classique</span></li>
+        <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Raphaël Cechetti</span><span class="laureats__prize">Premier Prix en danse classique · Premier Prix en jazz</span></li>
         <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Victor Delerue</span><span class="laureats__prize">Premier Prix en danse classique</span></li>
         <li class="laureats--prize"><span class="medal" aria-hidden="true">★</span><span class="laureats__name">Marceau Joliveau</span><span class="laureats__prize">Premier Prix à l’unanimité en danse classique</span></li>
       </ul>
@@ -522,11 +519,33 @@
     </div>
   </section>
 
+  <!-- ================= PARTENAIRES ================= -->
+  <section class="panel reveal" id="partenaires">
+    <div class="panel__inner">
+      <div class="section-head">
+        <p class="kicker">Ils nous soutiennent</p>
+        <h2>Partenaires</h2>
+        <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
+      </div>
+      <p>Le Centre de Danse Delphine Letort remercie chaleureusement ses partenaires manceaux, sans qui ce spectacle ne serait pas possible.</p>
+      <div class="partners">
+        <span class="partner">Jouvet</span>
+        <span class="partner">Saint Algue</span>
+        <span class="partner">Cryo</span>
+        <span class="partner">Siitel</span>
+        <span class="partner">All4Home</span>
+        <span class="partner">ABC Peinture Déco</span>
+        <span class="partner">Spectra Media</span>
+      </div>
+    </div>
+  </section>
+
 </main>
 
 <footer class="footer">
   <div class="flourish flourish--dark"><i></i><span>❖</span><i></i></div>
   <p class="footer__quote">« Le secret de l’amour, c’est d’aimer et d’être aimé en retour… »</p>
+  <p class="footer__word">Merci pour votre présence et très beau spectacle à toutes et à tous&nbsp;!</p>
   <p class="footer__sign">Centre de Danse Delphine Letort</p>
   <p class="footer__small">Moulin Rouge 2026 · Salle des Concerts · Le Mans</p>
 </footer>
